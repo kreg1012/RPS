@@ -52,21 +52,22 @@ function updateScore(pScore, cScore){
 
 }
 
+
 function playRound (playerSelection, computerSelection){
 
     if (playerSelection === 'rock' && computerSelection !== 'paper' && playerSelection !== computerSelection){
         playerScore++;
-        updateScore();
+        updateScore(playerScore,compScore);
         return;
     }
     else if (playerSelection === 'paper' && computerSelection !== 'scissors' && playerSelection !== computerSelection){
         playerScore++;
-        updateScore();
+        updateScore(playerScore,compScore);
         return;
     }
     else if (playerSelection === 'scissors' && computerSelection !== 'rock' && playerSelection !== computerSelection){
         playerScore++;
-        updateScore();
+        updateScore(playerScore,compScore);
         return;
     }
     else if (playerSelection === computerSelection){
@@ -75,11 +76,15 @@ function playRound (playerSelection, computerSelection){
     }
     else {
         compScore++;
-        updateScore();
+        updateScore(playerScore,compScore);
         return;
     }
 
 
+}
+
+function resetGame(){
+    
 }
 
 
