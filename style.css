@@ -2,15 +2,17 @@ body {
     background-color: black;
 }
 #gameCont {
-    height: 500px;
+    height: 700px;
     display: flex;
     justify-content: center;
-    align-content:center;
+    align-items:center;
     gap: 8px;
 }
 
 button {
     background-color:orange;
+    border: 2px solid white;
+    border-radius: 8px;
     height: 100px;
     width: 200px;
 }
