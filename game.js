@@ -1,4 +1,5 @@
 let playerInput;
+let playerChoice;
 let compChoice = '';
 let playerWin = 0;
 let compWin = 0;
@@ -7,34 +8,31 @@ let playerScore;
 
 
 function getPlayerChoice(){
-    playerInput = prompt("Type Rock, Paper, or Scissors",'');
-    playerInput = playerInput.toLowerCase();
-    let playerChoiceInt;
-    
-    //assign int value to player choice 
+    const buttons = document.querySelectorAll('#gameCont button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            playerChoice = button.id;
+        });
+    });
 
-    if (playerInput === 'rock'){
-        playerChoiceInt = 0;
-    }
-    else if (playerInput === 'paper'){
-        playerChoiceInt = 1;
-    }
-    else if(playerInput === 'scissors') {
-        playerChoiceInt = 2;
-    }
-    else {
-        alert("Player Choice not recognized, please refresh and try again");
-        playerChoiceInt = null;
-    }
-
-    return playerChoiceInt;
-
+    return playerChoice;
 }
 
 function getComputerChoice() {
     let rndNum = Math.floor(Math.random() * 3);
-    compChoice = rndNum;
-    console.log(compChoice);
+
+    switch(rndNum) {
+        case 0: 
+            compChoice = 'rock';
+            break;
+        case 1: 
+            compChoice = 'paper';
+            break;
+        case 2: 
+            compChoice = 'scissors';
+            break;
+    }
+    
     return compChoice;
 }
 
