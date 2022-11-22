@@ -7,6 +7,7 @@ let compScore = 0;
 let playerScore = 0;
 let pScoreText = document.querySelector('span.player');
 let cScoreText = document.querySelector('span.computer');
+let resetButton = document.querySelector('button#reset');
 
 
 function playGame(){
@@ -84,7 +85,13 @@ function playRound (playerSelection, computerSelection){
 }
 
 function resetGame(){
-    
+    resetButton.addEventListener('click', () => {
+        compScore = 0;
+        playerScore = 0;
+        pScoreText.textContent = `Player: ${playerScore}`;
+        cScoreText.textContent = `Computer: ${compScore}`;
+
+    })
 }
 
 

@@ -26,3 +26,17 @@ div#score {
     justify-content: center;
     gap: 95px;
 } 
+
+div#resetCont{
+    display: flex;
+    height: 200px;
+    justify-content: center;
+}
+
+button#reset {
+    background-color:white;
+    border: 2px solid orangered;
+    border-radius: 8px;
+    height: 75px;
+    width: 100px;
+}
