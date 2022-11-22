@@ -5,6 +5,8 @@ let playerWin = 0;
 let compWin = 0;
 let compScore = 0;
 let playerScore = 0;
+let pScoreText = document.querySelector('span.player');
+let cScoreText = document.querySelector('span.computer');
 
 
 function playGame(){
@@ -44,21 +46,27 @@ function getComputerChoice() {
     return compChoice;
 }
 
+function updateScore(pScore, cScore){
+    pScoreText.textContent = `Player: ${pScore}`;
+    cScoreText.textContent = `Computer: ${cScore}`;
+
+}
+
 function playRound (playerSelection, computerSelection){
 
     if (playerSelection === 'rock' && computerSelection !== 'paper' && playerSelection !== computerSelection){
         playerScore++;
-        alert(`Player chose ${playerChoice}. Computer chose ${compChoice}. Player wins round!`);
+        updateScore();
         return;
     }
     else if (playerSelection === 'paper' && computerSelection !== 'scissors' && playerSelection !== computerSelection){
         playerScore++;
-        alert(`Player chose ${playerChoice}. Computer chose ${compChoice}. Player wins round!`);
+        updateScore();
         return;
     }
     else if (playerSelection === 'scissors' && computerSelection !== 'rock' && playerSelection !== computerSelection){
         playerScore++;
-        alert(`Player chose ${playerChoice}. Computer chose ${compChoice}. Player wins round!`);
+        updateScore();
         return;
     }
     else if (playerSelection === computerSelection){
@@ -67,7 +75,7 @@ function playRound (playerSelection, computerSelection){
     }
     else {
         compScore++;
-        alert(`Player chose ${playerChoice}. Computer chose ${compChoice}. Computer wins round!`);
+        updateScore();
         return;
     }
 
