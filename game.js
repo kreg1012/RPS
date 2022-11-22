@@ -1,21 +1,29 @@
-let playerInput;
-let playerChoice;
+
+let playerChoice = '';
 let compChoice = '';
 let playerWin = 0;
 let compWin = 0;
-let compScore;
-let playerScore;
+let compScore = 0;
+let playerScore = 0;
 
 
-function getPlayerChoice(){
+function playGame(){
     const buttons = document.querySelectorAll('#gameCont button');
     buttons.forEach((button) => {
-        button.addEventListener('click', (e) => {
+        button.addEventListener('click', () => {
             playerChoice = button.id;
+            if(playerScore < 5 && compScore < 5){
+                playRound(playerChoice, getComputerChoice());
+                console.log(compScore);
+                console.log(playerScore);
+            }
+            else if(playerScore === 5 || compScore ===5){
+                alert("Game has ended. Please Reset Score");
+                return;
+            }
         });
     });
 
-    return playerChoice;
 }
 
 function getComputerChoice() {
@@ -38,36 +46,32 @@ function getComputerChoice() {
 
 function playRound (playerSelection, computerSelection){
 
-    if (playerSelection === 0 && computerSelection !== 1 && playerSelection !== computerSelection){
-        playerWin++;
-        alert(`Player chose ${playerInput}. Player wins round`);
+    if (playerSelection === 'rock' && computerSelection !== 'paper' && playerSelection !== computerSelection){
+        playerScore++;
+        alert(`Player chose ${playerChoice}. Computer chose ${compChoice}. Player wins round!`);
+        return;
     }
-    else if (playerSelection === 1 && computerSelection !== 2 && playerSelection !== computerSelection){
-        playerWin++;
-        alert(`Player chose ${playerInput}. Player wins round`);
+    else if (playerSelection === 'paper' && computerSelection !== 'scissors' && playerSelection !== computerSelection){
+        playerScore++;
+        alert(`Player chose ${playerChoice}. Computer chose ${compChoice}. Player wins round!`);
+        return;
     }
-    else if (playerSelection === 2 && computerSelection !== 0 && playerSelection !== computerSelection){
-        playerWin++;
-        alert(`Player chose ${playerInput}. Player wins round`);
+    else if (playerSelection === 'scissors' && computerSelection !== 'rock' && playerSelection !== computerSelection){
+        playerScore++;
+        alert(`Player chose ${playerChoice}. Computer chose ${compChoice}. Player wins round!`);
+        return;
     }
     else if (playerSelection === computerSelection){
-        alert(`Player chose ${playerInput}. Round is a TIE!`);
+        alert(`Player chose ${playerChoice}. Round is a TIE!`);
+        return;
     }
     else {
-        compWin++;
-        alert(`Player chose ${playerInput}. Computer wins round`);
+        compScore++;
+        alert(`Player chose ${playerChoice}. Computer chose ${compChoice}. Computer wins round!`);
+        return;
     }
 
 
 }
 
-function playGame() {
-    
-    for (let r = 0; r < 5; r++){
-        playRound(getPlayerChoice(), getComputerChoice());
-        compScore = compWin;
-        playerScore = playerWin;
-    }
-    alert(`Game has ended. Score is \nPlayer: ${playerScore} \nComputer: ${compScore}`);
-}
 

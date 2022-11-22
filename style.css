@@ -2,10 +2,10 @@ body {
     background-color: black;
 }
 #gameCont {
-    height: 700px;
+    height: 150px;
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items:flex-start;
     gap: 8px;
 }
 
@@ -16,3 +16,13 @@ button {
     height: 100px;
     width: 200px;
 }
+
+div#score {
+    height: 100px;
+    color: orange;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    gap: 95px;
+} 
