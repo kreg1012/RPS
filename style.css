@@ -1,0 +1,16 @@
+body {
+    background-color: black;
+}
+#gameCont {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-content:center;
+    gap: 8px;
+}
+
+button {
+    background-color:orange;
+    height: 100px;
+    width: 200px;
+}
